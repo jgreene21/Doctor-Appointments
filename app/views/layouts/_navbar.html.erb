@@ -1,19 +1,10 @@
-<nav>
-  <ul>
-    <li>
-      <%= link_to 'Home', root_path %>
-    </li>
-    <li>
-      <%= link_to 'Patients', patients_path %>
-    </li>
-    <li>
-      <%= link_to 'Add Patient', new_patient_path %>
-    </li>
-    <li>
-      <%= link_to 'Doctors', doctors_path %>
-    </li>
-    <li>
-      <%= link_to 'Add Doctor', new_doctor_path %>
-    </li>
-  </ul>
-</nav>
+<div class="ui red five item inverted menu">
+      <%= link_to 'Home', root_path, class:"active item" %>
+      <%= link_to 'Patients', patients_path, class:"item" %>
+      <%= link_to 'Add Patient', new_patient_path, class:"item"  %>
+      <%= link_to 'Doctors', doctors_path, class:"item"  %>
+      <%= link_to 'Add Doctor', new_doctor_path, class:"item"  %>
+</div>
+
+  
+ 

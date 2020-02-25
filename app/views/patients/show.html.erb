@@ -1,8 +1,15 @@
 <h1><%= @patient.full_name %></h1>
-
-<%= link_to 'Appointments', patient_appointments_path(@patient), class: "ui primary button inverted" %>
-<br />
 <br />
 <%= link_to 'Edit Patient', edit_patient_path(@patient), class: "ui green button inverted" %>
 <br />
 <%= link_to 'Delete patient', @patient, method: :delete, class: "ui pink button inverted" %>
+<br />
+<%= link_to 'Appointments', patient_appointments_path(@patient), class: "ui primary button inverted" %>
+<br />
+<h2>Appointments</h2>
+
+<% @patient.appointments.each do |appointment| %>
+<li><%= appointment.doctor.last_name %></li>
+<%= appointment.date %>
+<%= link_to 'delete', patient_appointment_path(@patient, appointment.id), method: :delete%>
+<% end %>

@@ -13,7 +13,7 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = @patient.appointments.new(appointment_params)
     if @appointment.save
-      redirect_to patient_path(@patient)
+      redirect_to patient_appointments_path(@patient)
     else
       render :new
     end
@@ -26,7 +26,7 @@ class AppointmentsController < ApplicationController
 
   def update
     if @appointment.update(appointment_params)
-      redirect_to patient_path(@patient)
+      redirect_to patient_appointments_path(@patient)
     else
       render :edit
     end
