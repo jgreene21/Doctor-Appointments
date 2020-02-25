@@ -5,8 +5,9 @@
 <h2> Doctors </h2>
   <% @appointments.each do |appointment| %>
   <li><%= "Dr. #{appointment.doctor.last_name}" %></li>
-
-  <%# <%= link_to 'Remove', patient_appointment_path(@patient, @doctor), method: :delete %>
+   <li><%= appointment.date %></li>
+<br />
+  <%= link_to 'Delete Appointment', patient_appointment_path(@patient, appointment), method: :delete %>
   
  <% end %>
 
