@@ -1,0 +1,11 @@
+<h1>Patients</h1>
+<%= link_to 'Add patient', new_patient_path %>
+<hr />
+<h2><%= @patients.length <= 0 ? "No patients" : "" %></h2> 
+<ul>
+  <% @patients.each do |patient| %>
+    <li>
+      <%= link_to patient.full_name, patient %>
+    </li>
+  <% end %>
+</ul>
