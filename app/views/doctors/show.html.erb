@@ -2,13 +2,6 @@
 
 <h2><%= "Dr. #{@doctor.last_name}" %></h2>
 <hr />
-
-<ul>
-  <% @doctor.patients.each do |patient| %>
-    <li>
-      <%= link_to patient.name, patient %>
-    </li>
-  <% end %>
 </ul>
 <br />
 <%= link_to 'Edit doctor', edit_doctor_path, class: "ui green button inverted" %>

@@ -2,25 +2,40 @@ class AppointmentsController < ApplicationController
   before_action :set_patient
 
   def index
-    @appointment = @patient.appointments.all
+    @appointments = @patient.appointments.all
   end
 
   def new
+    @doctor = Doctor.all
     @appointment = @patient.appointments.new
   end
 
   def create
     @appointment = @patient.appointments.new(appointment_params)
     if @appointment.save
-      redirect_to patient_appointments_path(@patient)
+      redirect_to patient_path(@patient)
     else
       render :new
     end
   end
 
+
+  def edit 
+    render partial: 'appointments/form'
+  end
+
+  def update
+    if @appointment.update(appointment_params)
+      redirect_to patient_path(@patient)
+    else
+      render :edit
+    end
+  end
+
+
   def destroy
-    @appointment = @patient.appointments.find(params[:id])
-    @appointment.destroy
+    @patient.appointments.find(params[:id]).destroy
+    # @appointment.destroy
     redirect_to patient_appointments_path(@patient)
   end
 

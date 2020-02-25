@@ -1,2 +1,20 @@
-<h1>Appointments#new</h1>
-<p>Find me in app/views/appointments/new.html.erb</p>
+<h1>Create New Appointment for <%= @patient.last_name %></h1>
+
+
+<h4><%= link_to "back", patient_path(@patient.id) %>
+
+
+
+<%= form_with(model: [@patient, @appointment], local: true, class:"ui form") do |f| %>
+
+<%= f.label :date %>
+
+<%= f.date_field :date, min: Date.today%>
+
+<%= f.label :doctor %>
+
+<%= f.select :doctor_id, Doctor.all.collect { |u| [u.last_name, u.id]} %>
+
+<%= f.submit nil, class: "ui purple button inverted" %>
+
+<% end %>

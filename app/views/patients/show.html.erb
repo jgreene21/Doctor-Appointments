@@ -1,6 +1,6 @@
 <h1><%= @patient.full_name %></h1>
 
-</ul>
+<%= link_to 'Appointments', patient_appointments_path(@patient), class: "ui primary button inverted" %>
 <br />
 <br />
 <%= link_to 'Edit Patient', edit_patient_path(@patient), class: "ui green button inverted" %>

@@ -1,0 +1,10 @@
+<h1><%= @appointment.id ? 'Edit appointment' : 'Create appointment' %></h1>
+<hr />
+<%= form_with(model: @appointment, local: true, class: "ui form") do |f| %>
+  <div class="field">
+    <%= f.label :date %>
+    <%= f.text_field :date, required: true, autofocus: true, placeholder: "Last Name" %>
+  </div>
+
+  <%= f.submit nil, class: "ui green button inverted" %>
+<% end %>
