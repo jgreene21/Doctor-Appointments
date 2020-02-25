@@ -2,6 +2,8 @@
 <hr />
 <%= form_with(model: @patient, local: true, class: "ui form") do |f| %>
   <div class="field">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, required: true, autofocus: true, placeholder: "Last Name" %>
     <%= f.label :last_name %>
     <%= f.text_field :last_name, required: true, autofocus: true, placeholder: "Last Name" %>
   </div>
